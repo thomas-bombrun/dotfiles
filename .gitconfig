@@ -1,0 +1,18 @@
+[push]
+	default = simple
+[alias]
+	co = checkout
+	ci = commit
+	br = branch
+	st = status
+	ls = log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate
+	ll = log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat
+	oldest-ancestor = !zsh -c 'diff -u <(git rev-list --first-parent \"${1:-master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | sed -ne \"s/^ //p\" | head -1' -
+	pushf = push --force-with-lease
+	amend = commit --amend
+	push = push -u
+[core]
+	editor = vim
+	hooksPath = /home/thomas/.git_hooks
+[rebase]
+	abbreviateCommands = true
